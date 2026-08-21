@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alessio Costa | Mathematics for Engineering @ Politecnico di Torino</title>
+  <meta name="description" content="Personal academic website of Alessio Costa, undergraduate student in Mathematics for Engineering at Politecnico di Torino. Research papers, lecture notes, blog, computational projects, and CV.">
+  <meta name="author" content="Alessio Costa">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX for beautiful LaTeX rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Grid -->
+  <div class="math-grid-bg" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-symbol">&part;&nabla;</span>
+        <span class="logo-text">Alessio<span class="highlight">Costa</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#blog" class="nav-link">Blog &amp; Insights</a>
+        <a href="#notes" class="nav-link">Lecture Notes &amp; Other Material</a>
+        <a href="#publications" class="nav-link">Publications</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#cv" class="nav-link">CV</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
+          <i data-lucide="moon" class="dark-icon"></i>
+          <i data-lucide="sun" class="light-icon"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-toggle" class="mobile-toggle-btn" aria-label="Toggle mobile menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="badge-tag">
+            <span class="pulse-dot"></span>
+            B.Sc. Student &bull; Politecnico di Torino
+          </div>
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Alessio Costa</span>
+          </h1>
+          <p class="hero-subtitle">
+            Undergraduate Student in <strong>Mathematics for Engineering</strong> at <strong>Politecnico di Torino</strong>.
+          </p>
+          <p class="hero-description">
+            Passionate about applied mathematics, numerical analysis, scientific computing, optimization, and mathematical modeling with machine learning.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#cv" class="btn btn-primary">
+              <i data-lucide="file-text"></i> Curriculum Vitae
+            </a>
+            <a href="#blog" class="btn btn-secondary">
+              <i data-lucide="pen-tool"></i> Read Blog
+            </a>
+            <a href="#notes" class="btn btn-secondary">
+              <i data-lucide="book-open"></i> Lecture Notes &amp; Other Material
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i data-lucide="mail"></i> Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-math-box spotlight-box">
+            <div class="math-header">
+              <span class="math-dot red"></span>
+              <span class="math-dot yellow"></span>
+              <span class="math-dot green"></span>
+              <span class="math-tab-title">latest_insight.md</span>
+            </div>
+            <div class="spotlight-body">
+              <div class="spotlight-badge">
+                <span class="pulse-dot"></span> Latest Blog Article
+              </div>
+              <h3 class="spotlight-title"><a href="blog/crank-nicolson-stability.html">Why Crank-Nicolson is Unconditionally Stable</a></h3>
+              <p class="spotlight-desc">Von Neumann stability analysis of 1D parabolic PDEs and the spectral radius of the amplification matrix.</p>
+              <div class="spotlight-math">
+                $$|G(\xi)| = \left|\frac{1 - 2r \sin^2(\xi/2)}{1 + 2r \sin^2(\xi/2)}\right| \le 1 \quad \forall r > 0$$
+              </div>
+              <a href="blog/crank-nicolson-stability.html" class="spotlight-action-link">
+                Read Full Insight &amp; Derivation <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Academic background, interests, and research vision</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon"><i data-lucide="user"></i></div>
+            <h3>Who I Am</h3>
+            <p>
+              I am an undergraduate student in <strong>Mathematics for Engineering</strong> at <strong>Politecnico di Torino</strong>. 
+              My curriculum bridges theoretical mathematics (analysis, geometry, probability) with applied engineering computation, numerical algorithms, and physical systems.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon"><i data-lucide="compass"></i></div>
+            <h3>Core Interests</h3>
+            <ul class="interest-list">
+              <li><i data-lucide="chevron-right"></i> <strong>Numerical Methods &amp; PDEs:</strong> Finite difference/elements, stiff differential equations, spectral solvers.</li>
+              <li><i data-lucide="chevron-right"></i> <strong>Optimization &amp; Operations Research:</strong> Continuous and discrete optimization, convex duality, gradient methods.</li>
+              <li><i data-lucide="chevron-right"></i> <strong>Scientific Computing &amp; Machine Learning:</strong> High-performance Python, C++, numerical linear algebra, physics-informed ML.</li>
+              <li><i data-lucide="chevron-right"></i> <strong>Mathematical Physics:</strong> Continuum mechanics, dynamical systems, variational principles.</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon"><i data-lucide="share-2"></i></div>
+            <h3>Open Science &amp; Sharing</h3>
+            <p>
+              I am dedicated to writing clear $\LaTeX$ notes, building computational tools, and sharing my academic journey. I use this space to host my lecture notes, write occasional technical articles, and showcase research and code.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINI BLOG & MATHEMATICAL INSIGHTS SECTION -->
+    <section id="blog" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Blog &amp; Mathematical Insights</h2>
+          <p class="section-subtitle">Short articles, derivations, computational thoughts, and problem-solving notes</p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Article 1 -->
+          <article class="blog-card">
+            <div class="blog-meta-header">
+              <span class="blog-tag">Numerical Analysis</span>
+              <span class="blog-reading-time"><i data-lucide="clock"></i> 5 min read</span>
+            </div>
+            <h3 class="blog-title"><a href="blog/crank-nicolson-stability.html">Why the Crank-Nicolson Scheme is Unconditionally Stable: A Von Neumann View</a></h3>
+            <p class="blog-excerpt">
+              A concise derivation of the amplification factor in finite difference discretizations of the 1D heat equation, proving why implicit averaging ensures $|G(\xi)| \le 1$ for all $\Delta t$.
+            </p>
+            <div class="blog-math-preview">
+              $$G(\xi) = \frac{1 - 2r \sin^2(\xi/2)}{1 + 2r \sin^2(\xi/2)} \implies |G(\xi)| \le 1 \quad \forall r > 0$$
+            </div>
+            <div class="blog-footer">
+              <span class="blog-date">March 2026</span>
+              <a href="blog/crank-nicolson-stability.html" class="blog-read-more">Read Full Article <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card">
+            <div class="blog-meta-header">
+              <span class="blog-tag">Optimization</span>
+              <span class="blog-reading-time"><i data-lucide="clock"></i> 4 min read</span>
+            </div>
+            <h3 class="blog-title"><a href="blog/lagrange-multipliers-kkt.html">Geometric Intuition Behind Lagrange Multipliers and KKT Conditions</a></h3>
+            <p class="blog-excerpt">
+              Visualizing why the gradient of the objective function must be aligned with the normal cone of active constraints at any local constrained extremum.
+            </p>
+            <div class="blog-math-preview">
+              $$-\nabla f(\mathbf{x}^*) \in N_{\mathcal{C}}(\mathbf{x}^*), \quad \mu_i \ge 0, \; \mu_i g_i(\mathbf{x}^*) = 0$$
+            </div>
+            <div class="blog-footer">
+              <span class="blog-date">February 2026</span>
+              <a href="blog/lagrange-multipliers-kkt.html" class="blog-read-more">Read Full Article <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card">
+            <div class="blog-meta-header">
+              <span class="blog-tag">Linear Algebra</span>
+              <span class="blog-reading-time"><i data-lucide="clock"></i> 6 min read</span>
+            </div>
+            <h3 class="blog-title"><a href="blog/svd-geometry.html">Singular Value Decomposition (SVD): Geometry of the Four Fundamental Subspaces</a></h3>
+            <p class="blog-excerpt">
+              How the SVD transforms unit hyperspheres into hyperellipsoids, providing the ultimate coordinate system for rank reduction and least squares problems.
+            </p>
+            <div class="blog-math-preview">
+              $$\mathbf{A} = \sum_{i=1}^r \sigma_i \mathbf{u}_i \mathbf{v}_i^T, \quad \mathbf{A}^\dagger = \mathbf{V}\mathbf{\Sigma}^\dagger \mathbf{U}^T$$
+            </div>
+            <div class="blog-footer">
+              <span class="blog-date">January 2026</span>
+              <a href="blog/svd-geometry.html" class="blog-read-more">Read Full Article <i data-lucide="arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LECTURE NOTES & OTHER MATERIAL SECTION -->
+    <section id="notes" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Lecture Notes &amp; Other Material</h2>
+          <p class="section-subtitle">
+            Self-contained $\LaTeX$ notes, study summaries, and reference sheets prepared during my coursework at Politecnico di Torino. 
+            Free to download and read.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All Materials</button>
+          <button class="filter-btn" data-filter="analysis">Analysis &amp; Theory</button>
+          <button class="filter-btn" data-filter="numerical">Numerical &amp; Computing</button>
+          <button class="filter-btn" data-filter="physics">Math Physics</button>
+          <button class="filter-btn" data-filter="optimization">Optimization &amp; Stats</button>
+        </div>
+
+        <div class="notes-grid" id="notes-grid">
+          <!-- Item 1: Numerical Analysis -->
+          <div class="note-card" data-category="numerical">
+            <div class="note-header">
+              <span class="note-category-badge">Numerical Methods</span>
+              <span class="note-date"><i data-lucide="clock"></i> Updated 2026</span>
+            </div>
+            <h3 class="note-title">Numerical Analysis &amp; Scientific Computing Compendium</h3>
+            <p class="note-desc">
+              Comprehensive reference covering root-finding algorithms, QR/SVD matrix factorizations, polynomial interpolation, numerical quadrature, and Runge-Kutta ODE solvers.
+            </p>
+            <div class="note-formula-box">
+              $$\mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^T, \quad x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
+            </div>
+            <div class="note-meta">
+              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
+              <span class="badge-lang"><i data-lucide="code"></i> LaTeX Source</span>
+            </div>
+            <div class="note-actions">
+              <a href="assets/docs/numerical_analysis_notes.pdf" class="btn btn-sm btn-primary" download>
+                <i data-lucide="download"></i> Download PDF
+              </a>
+              <a href="#contact" class="btn btn-sm btn-outline">
+                <i data-lucide="message-square"></i> Feedback
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 2: Mathematical Analysis III -->
+          <div class="note-card" data-category="analysis">
+            <div class="note-header">
+              <span class="note-category-badge">Analysis</span>
+              <span class="note-date"><i data-lucide="clock"></i> Updated 2026</span>
+            </div>
+            <h3 class="note-title">Complex Analysis &amp; Hilbert Spaces Notes</h3>
+            <p class="note-desc">
+              Detailed review of Cauchy-Riemann equations, contour integration, Cauchy's residue theorem, Hilbert basis, and Fourier transforms in $L^2(\mathbb{R})$.
+            </p>
+            <div class="note-formula-box">
+              $$\oint_{\gamma} f(z) \, dz = 2\pi i \sum_{k=1}^m \operatorname{Res}(f, z_k)$$
+            </div>
+            <div class="note-meta">
+              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
+              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
+            </div>
+            <div class="note-actions">
+              <a href="assets/docs/complex_analysis_notes.pdf" class="btn btn-sm btn-primary" download>
+                <i data-lucide="download"></i> Download PDF
+              </a>
+              <a href="#contact" class="btn btn-sm btn-outline">
+                <i data-lucide="message-square"></i> Feedback
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 3: Optimization & Linear Programming -->
+          <div class="note-card" data-category="optimization">
+            <div class="note-header">
+              <span class="note-category-badge">Optimization</span>
+              <span class="note-date"><i data-lucide="clock"></i> Updated 2026</span>
+            </div>
+            <h3 class="note-title">Operations Research &amp; Convex Optimization Guide</h3>
+            <p class="note-desc">
+              Algorithmic summaries: Two-phase Simplex method, Duality Theory, Karush-Kuhn-Tucker (KKT) conditions, and Gradient Descent convergence proofs.
+            </p>
+            <div class="note-formula-box">
+              $$\nabla f(\mathbf{x}^*) + \sum_{i=1}^m \mu_i \nabla g_i(\mathbf{x}^*) = \mathbf{0}, \quad \mu_i g_i(\mathbf{x}^*) = 0$$
+            </div>
+            <div class="note-meta">
+              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
+              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
+            </div>
+            <div class="note-actions">
+              <a href="assets/docs/optimization_notes.pdf" class="btn btn-sm btn-primary" download>
+                <i data-lucide="download"></i> Download PDF
+              </a>
+              <a href="#contact" class="btn btn-sm btn-outline">
+                <i data-lucide="message-square"></i> Feedback
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 4: Rational Mechanics -->
+          <div class="note-card" data-category="physics">
+            <div class="note-header">
+              <span class="note-category-badge">Mathematical Physics</span>
+              <span class="note-date"><i data-lucide="clock"></i> Updated 2025</span>
+            </div>
+            <h3 class="note-title">Analytical Mechanics &amp; Variational Principles</h3>
+            <p class="note-desc">
+              Summary of Euler-Lagrange equations, canonical transformations, Hamiltonian dynamics, rigid body kinematics, and Poisson brackets.
+            </p>
+            <div class="note-formula-box">
+              $$\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}_i}\right) - \frac{\partial \mathcal{L}}{\partial q_i} = 0$$
+            </div>
+            <div class="note-meta">
+              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
+              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
+            </div>
+            <div class="note-actions">
+              <a href="assets/docs/rational_mechanics_notes.pdf" class="btn btn-sm btn-primary" download>
+                <i data-lucide="download"></i> Download PDF
+              </a>
+              <a href="#contact" class="btn btn-sm btn-outline">
+                <i data-lucide="message-square"></i> Feedback
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 5: Probability & Statistics -->
+          <div class="note-card" data-category="optimization">
+            <div class="note-header">
+              <span class="note-category-badge">Probability</span>
+              <span class="note-date"><i data-lucide="clock"></i> Updated 2025</span>
+            </div>
+            <h3 class="note-title">Probability &amp; Stochastic Processes</h3>
+            <p class="note-desc">
+              Joint probability distributions, characteristic functions, Central Limit Theorem, Poisson processes, and discrete-time Markov chains.
+            </p>
+            <div class="note-formula-box">
+              $$\varphi_X(t) = \mathbb{E}\left[e^{itX}\right], \quad \lim_{n \to \infty} P\left(\frac{S_n - n\mu}{\sigma \sqrt{n}} \le z\right) = \Phi(z)$$
+            </div>
+            <div class="note-meta">
+              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
+              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
+            </div>
+            <div class="note-actions">
+              <a href="assets/docs/probability_notes.pdf" class="btn btn-sm btn-primary" download>
+                <i data-lucide="download"></i> Download PDF
+              </a>
+              <a href="#contact" class="btn btn-sm btn-outline">
+                <i data-lucide="message-square"></i> Feedback
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 6: Future Material Placeholder -->
+          <div class="note-card future-card" data-category="all">
+            <div class="future-content">
+              <div class="future-icon"><i data-lucide="plus-circle"></i></div>
+              <h3>More Notes in Progress</h3>
+              <p>
+                Drafting notes for <strong>Partial Differential Equations (PDEs)</strong>, <strong>Finite Element Methods (FEM)</strong>, and <strong>Scientific Python</strong>.
+              </p>
+              <span class="badge-incoming">Regularly Updated &bull; 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS & RESEARCH SECTION -->
+    <section id="publications" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Publications &amp; Research</h2>
+          <p class="section-subtitle">Pre-prints, technical reports, working papers, and thesis work</p>
+        </div>
+
+        <div class="publications-wrapper">
+          <!-- Forthcoming / In Progress Item -->
+          <div class="pub-card in-progress">
+            <div class="pub-badge-group">
+              <span class="pub-badge-status"><i data-lucide="loader"></i> Forthcoming / In Progress</span>
+              <span class="pub-badge-type">Undergraduate Thesis / Working Paper</span>
+            </div>
+            <h3 class="pub-title">Numerical Methods and Optimization in Applied Mathematics</h3>
+            <p class="pub-authors"><strong>Alessio Costa</strong></p>
+            <p class="pub-abstract">
+              Currently preparing working papers and research material at Politecnico di Torino exploring numerical solvers for differential systems and convex optimization algorithms. Pre-prints and technical reports will be published here upon completion.
+            </p>
+            <div class="pub-links">
+              <span class="pub-link disabled"><i data-lucide="file-text"></i> PDF (Coming Soon)</span>
+              <span class="pub-link disabled"><i data-lucide="code-2"></i> Code Repository</span>
+              <span class="pub-link disabled"><i data-lucide="quote"></i> BibTeX</span>
+            </div>
+          </div>
+
+          <!-- Publication Placeholder Template for Future Use -->
+          <div class="pub-card-placeholder">
+            <div class="pub-placeholder-content">
+              <i data-lucide="sparkles" class="placeholder-icon"></i>
+              <h4>Research Papers &amp; Preprints Section</h4>
+              <p>As new papers, pre-prints (arXiv), or thesis chapters are written, they will be listed here with direct open-access links, abstracts, and BibTeX citations.</p>
+              <div class="pub-meta-tags">
+                <span><i data-lucide="check-circle-2"></i> arXiv compatible</span>
+                <span><i data-lucide="check-circle-2"></i> Open Access</span>
+                <span><i data-lucide="check-circle-2"></i> Reproducible Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Computational Projects</h2>
+          <p class="section-subtitle">Mathematical modeling, simulation algorithms, and code implementations</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">2D Heat &amp; Wave Equation Solver (FDM / FEM)</h3>
+            <p class="project-desc">
+              Numerical solver in Python and C++ for parabolic and hyperbolic PDEs using Crank-Nicolson and finite difference stencils with sparse matrix acceleration.
+            </p>
+            <div class="project-math-badge">
+              $\frac{\partial u}{\partial t} = \alpha \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)$
+            </div>
+            <div class="project-tech-stack">
+              <span>Python</span><span>NumPy</span><span>SciPy</span><span>Matplotlib</span><span>C++</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">Simplex &amp; Interior Point Optimizer</h3>
+            <p class="project-desc">
+              An educational and efficient optimization solver implementing Revised Simplex, Bland's anti-cycling rule, and Primal-Dual Interior Point methods for linear programs.
+            </p>
+            <div class="project-math-badge">
+              $\min \mathbf{c}^T \mathbf{x} \quad \text{s.t.} \quad \mathbf{Ax} = \mathbf{b}, \; \mathbf{x} \ge \mathbf{0}$
+            </div>
+            <div class="project-tech-stack">
+              <span>Python</span><span>Julia</span><span>Optimization</span><span>Linear Algebra</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">Monte Carlo Simulations &amp; Markov Chains</h3>
+            <p class="project-desc">
+              Simulation toolkit for high-dimensional integration, random walks, PageRank power iterations, and Metropolis-Hastings MCMC sampling.
+            </p>
+            <div class="project-math-badge">
+              $I \approx \frac{1}{N} \sum_{i=1}^N g(X_i), \quad X_i \sim p(x)$
+            </div>
+            <div class="project-tech-stack">
+              <span>MATLAB</span><span>Python</span><span>Stochastics</span><span>MCMC</span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
+              <div class="project-links">
+                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">Dimensionality Reduction &amp; Spectral Clustering</h3>
+            <p class="project-desc">
+              Mathematical exploration of SVD, Principal Component Analysis (PCA), Graph Laplacians, and Spectral Clustering applied to complex datasets.
+            </p>
+            <div class="project-math-badge">
+              $\mathbf{L} = \mathbf{D} - \mathbf{W}, \quad \mathbf{L}\mathbf{v} = \lambda \mathbf{v}$
+            </div>
+            <div class="project-tech-stack">
+              <span>Python</span><span>Scikit-Learn</span><span>Linear Algebra</span><span>Graph Theory</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Skills &amp; Tools</h2>
+          <p class="section-subtitle">Mathematical software, programming languages, and theoretical tools</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <div class="skill-cat-header">
+              <i data-lucide="code"></i>
+              <h3>Programming &amp; Computing</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill"><strong>Python</strong> (NumPy, SciPy, Matplotlib, Pandas, PyTorch)</div>
+              <div class="skill-pill"><strong>MATLAB / Simulink</strong></div>
+              <div class="skill-pill"><strong>C / C++</strong> (Standard Library, Eigen, algorithms)</div>
+              <div class="skill-pill"><strong>Julia</strong> (Scientific Computing &amp; Optimization)</div>
+              <div class="skill-pill"><strong>R</strong> (Statistical analysis)</div>
+              <div class="skill-pill"><strong>Bash &amp; Linux</strong></div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-cat-header">
+              <i data-lucide="sigma"></i>
+              <h3>Mathematical &amp; Theoretical</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill">Numerical Analysis &amp; Matrix Factorizations</div>
+              <div class="skill-pill">Linear &amp; Nonlinear Optimization (Convex, LP, KKT)</div>
+              <div class="skill-pill">Ordinary &amp; Partial Differential Equations (ODEs / PDEs)</div>
+              <div class="skill-pill">Probability Theory, Statistics &amp; Stochastic Processes</div>
+              <div class="skill-pill">Dynamical Systems &amp; Analytical Mechanics</div>
+              <div class="skill-pill">Real, Complex &amp; Functional Analysis</div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-cat-header">
+              <i data-lucide="terminal"></i>
+              <h3>Tools &amp; Workflows</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill"><strong>$\LaTeX$</strong> (Overleaf, TikZ, Beamer, BibTeX)</div>
+              <div class="skill-pill"><strong>Git &amp; GitHub</strong> (Version control, CI/CD)</div>
+              <div class="skill-pill"><strong>Jupyter Notebooks / VS Code</strong></div>
+              <div class="skill-pill"><strong>Linux / UNIX</strong> Environment</div>
+              <div class="skill-pill"><strong>Markdown &amp; Web Technologies</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRICULUM VITAE (CV) SECTION -->
+    <section id="cv" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Curriculum Vitae</h2>
+          <p class="section-subtitle">Summary of academic trajectory and downloadable resume</p>
+        </div>
+
+        <div class="cv-wrapper">
+          <div class="cv-card">
+            <div class="cv-highlight-header">
+              <div class="cv-personal-info">
+                <h3>Alessio Costa</h3>
+                <p>Mathematics for Engineering Undergraduate &bull; Politecnico di Torino</p>
+              </div>
+              <div class="cv-download-btn-group">
+                <a href="assets/docs/CV_Alessio_Costa.pdf" class="btn btn-primary" download>
+                  <i data-lucide="download"></i> Download Full CV (PDF)
+                </a>
+              </div>
+            </div>
+
+            <div class="cv-sections-preview">
+              <!-- Professional Experience Block -->
+              <div class="cv-block">
+                <div class="cv-block-title">
+                  <i data-lucide="briefcase"></i> Professional Experience
+                </div>
+                <div class="cv-item">
+                  <div class="cv-item-header">
+                    <span class="cv-institution">Academic &amp; Private Tutoring</span>
+                    <span class="cv-date">2023 &ndash; Present</span>
+                  </div>
+                  <div class="cv-degree">Private Tutor in Mathematics &amp; Physics</div>
+                  <p class="cv-details">
+                    Delivering individual and group tutoring for university and high school students in Mathematical Analysis, Linear Algebra, Geometry, and Classical Physics. Focus on structured problem solving, conceptual understanding, and exam preparation.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Education Block -->
+              <div class="cv-block">
+                <div class="cv-block-title">
+                  <i data-lucide="graduation-cap"></i> Education
+                </div>
+                <div class="cv-item">
+                  <div class="cv-item-header">
+                    <span class="cv-institution">Politecnico di Torino</span>
+                    <span class="cv-date">2023 &ndash; Present (Expected 2026)</span>
+                  </div>
+                  <div class="cv-degree">Bachelor of Science in Mathematics for Engineering</div>
+                  <p class="cv-details">
+                    Focus on Mathematical Analysis, Numerical Methods, Algorithms, Differential Equations, Optimization, and Scientific Computing.
+                  </p>
+                </div>
+                <div class="cv-item">
+                  <div class="cv-item-header">
+                    <span class="cv-institution">High School</span>
+                    <span class="cv-date">Graduated 2023</span>
+                  </div>
+                  <div class="cv-degree">Scientific High School Diploma</div>
+                  <p class="cv-details">Scientific track with an intensive curriculum in advanced mathematics and physics.</p>
+                </div>
+              </div>
+
+              <!-- Languages Block -->
+              <div class="cv-block">
+                <div class="cv-block-title">
+                  <i data-lucide="globe"></i> Languages
+                </div>
+                <div class="cv-item">
+                  <p><strong>Italian:</strong> Native speaker</p>
+                  <p><strong>English:</strong> Fluent / Professional proficiency</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="cv-footer-notice">
+              <i data-lucide="info"></i>
+              <span>For updated inquiries or academic references, feel free to reach out via <a href="#contact">email</a>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="section-subtitle">Interested in discussing mathematical problems, research, study material, or projects?</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <h3>Contact Information</h3>
+            <p>Feel free to reach out through my university email or personal channels.</p>
+
+            <div class="contact-details">
+              <a href="mailto:s351050@studenti.polito.it" class="contact-item">
+                <div class="contact-icon"><i data-lucide="graduation-cap"></i></div>
+                <div>
+                  <span class="contact-label">PoliTO Student Email</span>
+                  <span class="contact-value">s351050@studenti.polito.it</span>
+                </div>
+              </a>
+
+              <a href="mailto:alessiocosta2006@gmail.com" class="contact-item">
+                <div class="contact-icon"><i data-lucide="mail"></i></div>
+                <div>
+                  <span class="contact-label">Personal Email</span>
+                  <span class="contact-value">alessiocosta2006@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">github.com/alecosta6</span>
+                </div>
+              </a>
+
+              <a href="https://www.linkedin.com/in/alessio-costa-2b3389286/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">linkedin.com/in/alessio-costa-2b3389286</span>
+                </div>
+              </a>
+
+              <div class="contact-item">
+                <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+                <div>
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">Politecnico di Torino &bull; Corso Duca degli Abruzzi 24, Turin, Italy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <h3>Send a Message</h3>
+            <form id="contact-form" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" required placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" required placeholder="your.email@domain.com">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" required placeholder="Discussion on Lecture Notes / Project">
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" required placeholder="Hi Alessio, I was reading through your materials..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                <i data-lucide="send"></i> Send Email
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copyright">
+          &copy; <span id="current-year">2026</span> Alessio Costa &bull; Mathematics for Engineering Student
+        </p>
+        <p class="footer-subtext">
+          Politecnico di Torino &bull; Department of Mathematical Sciences (DISMA)
+        </p>
+      </div>
+      <div class="footer-right">
+        <span class="footer-tech">Built with HTML5, CSS3, KaTeX &amp; <span class="heart-symbol">&hearts;</span></span>
+        <a href="#hero" class="back-to-top" title="Back to top">
+          <i data-lucide="arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geometric Intuition Behind Lagrange Multipliers & KKT | Alessio Costa</title>
+  <meta name="description" content="Visualizing constrained optimization, active constraints, normal cones, and Karush-Kuhn-Tucker (KKT) conditions.">
+  <meta name="author" content="Alessio Costa">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="math-grid-bg" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-symbol">&part;&nabla;</span>
+        <span class="logo-text">Alessio<span class="highlight">Costa</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../index.html#blog" class="back-link">
+          <i data-lucide="arrow-left"></i> Back to Blog
+        </a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+          <i data-lucide="moon" class="dark-icon"></i>
+          <i data-lucide="sun" class="light-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-back-nav">
+        <a href="../index.html#blog" class="back-link">
+          <i data-lucide="arrow-left"></i> All Articles &amp; Insights
+        </a>
+      </div>
+      <h1 class="article-title">Geometric Intuition Behind Lagrange Multipliers and KKT Conditions</h1>
+      <div class="article-meta">
+        <span><i data-lucide="user"></i> Alessio Costa</span>
+        <span><i data-lucide="calendar"></i> February 2026</span>
+        <span><i data-lucide="clock"></i> 4 min read</span>
+        <span class="blog-tag">Optimization</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        In unconstrained optimization of a differentiable convex function $f: \mathbb{R}^n \to \mathbb{R}$, finding a minimum requires simply finding a stationary point where the gradient vanishes: $\nabla f(\mathbf{x}^*) = \mathbf{0}$.
+      </p>
+      
+      <p>
+        However, in real-world engineering and computational economics, solutions are almost always bounded by equality and inequality constraints. How does geometry guide us to the optimal point?
+      </p>
+
+      <h2>1. The Problem Formulation</h2>
+      <p>
+        Consider the non-linear program:
+      </p>
+      
+      <div class="math-block">
+        $$\begin{aligned}
+        \min_{\mathbf{x} \in \mathbb{R}^n} \quad & f(\mathbf{x}) \\
+        \text{subject to} \quad & g_i(\mathbf{x}) \le 0, \quad i = 1, \dots, m \\
+        & h_j(\mathbf{x}) = 0, \quad j = 1, \dots, p
+        \end{aligned}$$
+      </div>
+
+      <p>
+        Let $\mathcal{C} = \{ \mathbf{x} \in \mathbb{R}^n \mid g_i(\mathbf{x}) \le 0, \; h_j(\mathbf{x}) = 0 \}$ denote the feasible set.
+      </p>
+
+      <h2>2. Normal Cones and Variational Inequality</h2>
+      <p>
+        At an optimal solution $\mathbf{x}^* \in \mathcal{C}$, any direction $\mathbf{d}$ that moves into the interior of the feasible set must not decrease the objective function value. Mathematically:
+      </p>
+
+      <div class="math-block">
+        $$\langle \nabla f(\mathbf{x}^*), \mathbf{x} - \mathbf{x}^* \rangle \ge 0 \quad \forall \mathbf{x} \in \mathcal{C}$$
+      </div>
+
+      <p>
+        This fundamental variational condition states that the negative gradient $-\nabla f(\mathbf{x}^*)$ must belong to the <strong>Normal Cone</strong> $N_{\mathcal{C}}(\mathbf{x}^*)$ of the feasible set at $\mathbf{x}^*$:
+      </p>
+
+      <div class="math-block">
+        $$-\nabla f(\mathbf{x}^*) \in N_{\mathcal{C}}(\mathbf{x}^*)$$
+      </div>
+
+      <h2>3. The KKT Necessary Conditions</h2>
+      <p>
+        Assuming standard constraint qualifications (such as the Linear Independence Constraint Qualification / LICQ or Slater's condition for convex problems), the normal cone is generated as a non-negative linear combination of the gradients of the active constraints.
+      </p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Karush-Kuhn-Tucker (KKT) System</div>
+        If $\mathbf{x}^*$ is a local minimum, there exist Lagrange multiplier vectors $\boldsymbol{\mu} \in \mathbb{R}^m$ and $\boldsymbol{\lambda} \in \mathbb{R}^p$ such that:
+        <ol>
+          <li><strong>Stationarity:</strong> $\nabla f(\mathbf{x}^*) + \sum_{i=1}^m \mu_i \nabla g_i(\mathbf{x}^*) + \sum_{j=1}^p \lambda_j \nabla h_j(\mathbf{x}^*) = \mathbf{0}$</li>
+          <li><strong>Primal Feasibility:</strong> $g_i(\mathbf{x}^*) \le 0 \; (\forall i)$ and $h_j(\mathbf{x}^*) = 0 \; (\forall j)$</li>
+          <li><strong>Dual Feasibility:</strong> $\mu_i \ge 0 \; (\forall i = 1, \dots, m)$</li>
+          <li><strong>Complementary Slackness:</strong> $\mu_i g_i(\mathbf{x}^*) = 0 \; (\forall i = 1, \dots, m)$</li>
+        </ol>
+      </div>
+
+      <h2>4. Complementary Slackness: The Physical Intuition</h2>
+      <p>
+        The complementary slackness condition $\mu_i g_i(\mathbf{x}^*) = 0$ has a beautiful physical and geometric meaning:
+      </p>
+      <ul>
+        <li><strong>Inactive constraint ($g_i(\mathbf{x}^*) < 0$):</strong> The optimum lies in the strict interior of the constraint boundary. The constraint does not restrict the motion, so its multiplier must be zero ($\mu_i = 0$).</li>
+        <li><strong>Active constraint ($g_i(\mathbf{x}^*) = 0$):</strong> The optimum presses directly against the boundary. The multiplier $\mu_i > 0$ represents the "force" or sensitivity $\frac{\partial f^*}{\partial c_i}$ of the optimal value with respect to perturbing the constraint boundary.</li>
+      </ul>
+
+      <footer class="article-footer-nav">
+        <a href="crank-nicolson-stability.html" class="btn btn-secondary">
+          <i data-lucide="arrow-left"></i> Previous: Crank-Nicolson
+        </a>
+        <a href="svd-geometry.html" class="btn btn-primary">
+          Next: SVD Geometry <i data-lucide="arrow-right"></i>
+        </a>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copyright">&copy; 2026 Alessio Costa &bull; Mathematics for Engineering</p>
+      </div>
+      <div class="footer-right">
+        <a href="#" class="back-to-top" title="Back to top"><i data-lucide="arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

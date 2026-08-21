@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVD & Fundamental Subspaces Geometry | Alessio Costa</title>
+  <meta name="description" content="Exploring the geometric transformation of unit hyperspheres into hyperellipsoids via the Singular Value Decomposition (SVD).">
+  <meta name="author" content="Alessio Costa">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="math-grid-bg" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-symbol">&part;&nabla;</span>
+        <span class="logo-text">Alessio<span class="highlight">Costa</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../index.html#blog" class="back-link">
+          <i data-lucide="arrow-left"></i> Back to Blog
+        </a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+          <i data-lucide="moon" class="dark-icon"></i>
+          <i data-lucide="sun" class="light-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-back-nav">
+        <a href="../index.html#blog" class="back-link">
+          <i data-lucide="arrow-left"></i> All Articles &amp; Insights
+        </a>
+      </div>
+      <h1 class="article-title">Singular Value Decomposition (SVD): Geometry of the Four Fundamental Subspaces</h1>
+      <div class="article-meta">
+        <span><i data-lucide="user"></i> Alessio Costa</span>
+        <span><i data-lucide="calendar"></i> January 2026</span>
+        <span><i data-lucide="clock"></i> 6 min read</span>
+        <span class="blog-tag">Linear Algebra</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        The <strong>Singular Value Decomposition (SVD)</strong> is arguably the crowning jewel of linear algebra and scientific computing. Unlike eigenvalue decomposition (which is restricted to square diagonalizable matrices), the SVD exists for <em>any</em> matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$.
+      </p>
+
+      <h2>1. The Decomposition Theorem</h2>
+      <p>
+        Any real matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ of rank $r \le \min(m, n)$ can be factored into the product of three canonical matrices:
+      </p>
+
+      <div class="math-block">
+        $$\mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^T = \sum_{i=1}^r \sigma_i \mathbf{u}_i \mathbf{v}_i^T$$
+      </div>
+
+      <p>where:</p>
+      <ul>
+        <li>$\mathbf{U} \in \mathbb{R}^{m \times m}$ is an orthogonal matrix whose columns $\mathbf{u}_i$ are the <strong>left-singular vectors</strong> (orthonormal eigenvectors of $\mathbf{A}\mathbf{A}^T$).</li>
+        <li>$\mathbf{\Sigma} \in \mathbb{R}^{m \times n}$ is a diagonal matrix containing the singular values in descending order: $\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r > 0$.</li>
+        <li>$\mathbf{V} \in \mathbb{R}^{n \times n}$ is an orthogonal matrix whose columns $\mathbf{v}_i$ are the <strong>right-singular vectors</strong> (orthonormal eigenvectors of $\mathbf{A}^T\mathbf{A}$).</li>
+      </ul>
+
+      <h2>2. Geometric Action: Sphere to Ellipsoid</h2>
+      <p>
+        The SVD provides an intuitive geometric decomposition of linear mappings:
+      </p>
+      <div class="theorem-box">
+        <div class="theorem-title">Geometric Decomposition</div>
+        Any linear transformation $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ decomposes into three simple geometric steps:
+        <ol>
+          <li>$\mathbf{V}^T$: An isometric rotation/reflection in the domain $\mathbb{R}^n$.</li>
+          <li>$\mathbf{\Sigma}$: An axis-aligned stretching/shrinking by singular values $\sigma_i$.</li>
+          <li>$\mathbf{U}$: An isometric rotation/reflection in the codomain $\mathbb{R}^m$.</li>
+        </ol>
+        Consequently, the unit sphere $S = \{ \mathbf{x} \in \mathbb{R}^n \mid \|\mathbf{x}\|_2 = 1 \}$ is mapped to a hyperellipsoid with principal semi-axes lengths $\sigma_1, \dots, \sigma_r$ oriented along vectors $\mathbf{u}_1, \dots, \mathbf{u}_r$.
+      </div>
+
+      <h2>3. The Four Fundamental Subspaces</h2>
+      <p>
+        The singular vectors form the ideal orthonormal bases for the four fundamental subspaces of Gilbert Strang's framework:
+      </p>
+      <ul>
+        <li><strong>Row Space $\operatorname{Row}(\mathbf{A}) = \operatorname{span}(\mathbf{v}_1, \dots, \mathbf{v}_r) \subset \mathbb{R}^n$</strong></li>
+        <li><strong>Nullspace $\operatorname{Null}(\mathbf{A}) = \operatorname{span}(\mathbf{v}_{r+1}, \dots, \mathbf{v}_n) \subset \mathbb{R}^n$</strong></li>
+        <li><strong>Column Space $\operatorname{Col}(\mathbf{A}) = \operatorname{span}(\mathbf{u}_1, \dots, \mathbf{u}_r) \subset \mathbb{R}^m$</strong></li>
+        <li><strong>Left Nullspace $\operatorname{Null}(\mathbf{A}^T) = \operatorname{span}(\mathbf{u}_{r+1}, \dots, \mathbf{u}_m) \subset \mathbb{R}^m$</strong></li>
+      </ul>
+
+      <h2>4. Low-Rank Approximation (Eckart-Young-Mirsky)</h2>
+      <p>
+        The optimal rank-$k$ approximation of $\mathbf{A}$ under both the Frobenius and spectral matrix norms is obtained simply by truncating the SVD at the first $k < r$ terms:
+      </p>
+      <div class="math-block">
+        $$\mathbf{A}_k = \sum_{i=1}^k \sigma_i \mathbf{u}_i \mathbf{v}_i^T, \quad \|\mathbf{A} - \mathbf{A}_k\|_2 = \sigma_{k+1}$$
+      </div>
+
+      <footer class="article-footer-nav">
+        <a href="lagrange-multipliers-kkt.html" class="btn btn-secondary">
+          <i data-lucide="arrow-left"></i> Previous: KKT Conditions
+        </a>
+        <a href="../index.html#blog" class="btn btn-primary">
+          <i data-lucide="home"></i> Back to Main Page
+        </a>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copyright">&copy; 2026 Alessio Costa &bull; Mathematics for Engineering</p>
+      </div>
+      <div class="footer-right">
+        <a href="#" class="back-to-top" title="Back to top"><i data-lucide="arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

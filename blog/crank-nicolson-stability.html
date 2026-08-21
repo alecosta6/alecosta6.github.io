@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Crank-Nicolson is Unconditionally Stable | Alessio Costa</title>
+  <meta name="description" content="A rigorous Von Neumann stability analysis of the Crank-Nicolson finite difference scheme for parabolic partial differential equations.">
+  <meta name="author" content="Alessio Costa">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="math-grid-bg" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-symbol">&part;&nabla;</span>
+        <span class="logo-text">Alessio<span class="highlight">Costa</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../index.html#blog" class="back-link">
+          <i data-lucide="arrow-left"></i> Back to Blog
+        </a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+          <i data-lucide="moon" class="dark-icon"></i>
+          <i data-lucide="sun" class="light-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="article-container">
+    <header class="article-header">
+      <div class="article-back-nav">
+        <a href="../index.html#blog" class="back-link">
+          <i data-lucide="arrow-left"></i> All Articles &amp; Insights
+        </a>
+      </div>
+      <h1 class="article-title">Why the Crank-Nicolson Scheme is Unconditionally Stable: A Von Neumann View</h1>
+      <div class="article-meta">
+        <span><i data-lucide="user"></i> Alessio Costa</span>
+        <span><i data-lucide="calendar"></i> March 2026</span>
+        <span><i data-lucide="clock"></i> 5 min read</span>
+        <span class="blog-tag">Numerical Analysis</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        When solving time-dependent parabolic Partial Differential Equations (PDEs) such as the 1D Heat Equation:
+      </p>
+      
+      <div class="math-block">
+        $$\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}, \quad x \in (0, L), \; t > 0$$
+      </div>
+
+      <p>
+        explicit numerical methods (such as Forward Time Centered Space / FTCS) suffer from a severe time-step constraint known as the CFL stability condition: $r = \frac{\alpha \Delta t}{\Delta x^2} \le \frac{1}{2}$. If $\Delta x$ is halved, the permissible time-step $\Delta t$ must be reduced by a factor of four.
+      </p>
+      
+      <p>
+        The <strong>Crank-Nicolson method</strong>, introduced by John Crank and Phyllis Nicolson in 1947, resolves this computational bottleneck by averaging the explicit and implicit spatial stencils at time levels $n$ and $n+1$.
+      </p>
+
+      <h2>1. Discretization Stencil</h2>
+      <p>
+        Let $u_j^n \approx u(x_j, t_n)$ where $x_j = j \Delta x$ and $t_n = n \Delta t$. Replacing the time derivative with a forward difference at the half-step $t_{n+1/2}$ and the second spatial derivative with the arithmetic mean gives:
+      </p>
+
+      <div class="math-block">
+        $$\frac{u_j^{n+1} - u_j^n}{\Delta t} = \frac{\alpha}{2} \left( \frac{u_{j+1}^{n+1} - 2u_j^{n+1} + u_{j-1}^{n+1}}{\Delta x^2} + \frac{u_{j+1}^n - 2u_j^n + u_{j-1}^n}{\Delta x^2} \right)$$
+      </div>
+
+      <p>
+        Defining the dimensionless mesh ratio parameter $r = \frac{\alpha \Delta t}{\Delta x^2}$, we rearrange into the classical tridiagonal linear system:
+      </p>
+
+      <div class="math-block">
+        $$-\frac{r}{2} u_{j-1}^{n+1} + (1 + r) u_j^{n+1} - \frac{r}{2} u_{j+1}^{n+1} = \frac{r}{2} u_{j-1}^n + (1 - r) u_j^n + \frac{r}{2} u_{j+1}^n$$
+      </div>
+
+      <h2>2. Von Neumann Stability Analysis</h2>
+      <p>
+        To examine numerical stability, we express the spatial distribution of the error as a Fourier series and analyze the evolution of an arbitrary Fourier mode:
+      </p>
+
+      <div class="math-block">
+        $$u_j^n = G^n e^{i k x_j} = G^n e^{i j \xi}$$
+      </div>
+
+      <p>
+        where $\xi = k \Delta x \in [-\pi, \pi]$ represents the phase angle and $G \in \mathbb{C}$ is the <strong>amplification factor</strong>. Substituting into the difference equation:
+      </p>
+
+      <div class="math-block">
+        $$G \left[ -\frac{r}{2} e^{-i\xi} + (1 + r) - \frac{r}{2} e^{i\xi} \right] = \frac{r}{2} e^{-i\xi} + (1 - r) + \frac{r}{2} e^{i\xi}$$
+      </div>
+
+      <p>
+        Using Euler's identity $e^{i\xi} + e^{-i\xi} = 2 \cos(\xi)$ and the half-angle trigonometric relation $1 - \cos(\xi) = 2 \sin^2(\xi/2)$:
+      </p>
+
+      <div class="math-block">
+        $$G \left[ 1 + r(1 - \cos\xi) \right] = 1 - r(1 - \cos\xi)$$
+      </div>
+
+      <div class="math-block">
+        $$G(\xi) = \frac{1 - 2r \sin^2\left(\frac{\xi}{2}\right)}{1 + 2r \sin^2\left(\frac{\xi}{2}\right)}$$
+      </div>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Theorem (Unconditional A-Stability)</div>
+        For any physical diffusion parameter $\alpha > 0$ and any positive spatial and temporal step sizes $\Delta x, \Delta t > 0$, the parameter $r > 0$. Since $\sin^2(\xi/2) \ge 0$, the denominator is strictly greater than or equal to the numerator in absolute value:
+        $$\left| G(\xi) \right| = \left| \frac{1 - 2r \sin^2(\xi/2)}{1 + 2r \sin^2(\xi/2)} \right| \le 1 \quad \forall \xi \in [-\pi, \pi]$$
+        Hence, the Crank-Nicolson method is <strong>unconditionally stable</strong> in the $L^2$ norm.
+      </div>
+
+      <h2>3. Order of Accuracy &amp; Practical Notes</h2>
+      <p>
+        By Taylor series expansion around $(x_j, t_{n+1/2})$, it is straightforward to show that the truncation error is:
+      </p>
+      <div class="math-block">
+        $$\tau_j^n = \mathcal{O}(\Delta t^2) + \mathcal{O}(\Delta x^2)$$
+      </div>
+      <p>
+        This second-order temporal and spatial accuracy makes it significantly superior to implicit Backward Euler (which is only $\mathcal{O}(\Delta t)$ in time), while avoiding any step-size restriction.
+      </p>
+
+      <h2>4. Python Implementation</h2>
+      <div class="code-snippet-box">
+<pre><code>import numpy as np
+from scipy.linalg import solve_banded
+
+def crank_nicolson_1d(u0, alpha, dt, dx, nt):
+    """
+    Solves du/dt = alpha * d2u/dx2 using Crank-Nicolson.
+    """
+    nx = len(u0)
+    r = alpha * dt / (dx**2)
+    
+    # Construct tridiagonal LHS and RHS
+    main_diag = (1 + r) * np.ones(nx - 2)
+    off_diag = (-r / 2) * np.ones(nx - 3)
+    
+    # Banded matrix for scipy
+    ab = np.zeros((3, nx - 2))
+    ab[0, 1:] = off_diag
+    ab[1, :] = main_diag
+    ab[2, :-1] = off_diag
+    
+    u = u0.copy()
+    for _ in range(nt):
+        rhs = (r/2)*u[:-2] + (1-r)*u[1:-1] + (r/2)*u[2:]
+        u[1:-1] = solve_banded((1, 1), ab, rhs)
+    return u</code></pre>
+      </div>
+
+      <footer class="article-footer-nav">
+        <a href="../index.html#blog" class="btn btn-secondary">
+          <i data-lucide="arrow-left"></i> Back to All Articles
+        </a>
+        <a href="lagrange-multipliers-kkt.html" class="btn btn-primary">
+          Next: Lagrange Multipliers &amp; KKT <i data-lucide="arrow-right"></i>
+        </a>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copyright">&copy; 2026 Alessio Costa &bull; Mathematics for Engineering</p>
+      </div>
+      <div class="footer-right">
+        <a href="#" class="back-to-top" title="Back to top"><i data-lucide="arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
