@@ -41,10 +41,7 @@
 
       <nav class="nav-menu" id="nav-menu">
         <a href="#about" class="nav-link">About</a>
-        <a href="#blog" class="nav-link">Blog &amp; Insights</a>
-        <a href="#notes" class="nav-link">Lecture Notes &amp; Other Material</a>
-        <a href="#publications" class="nav-link">Publications</a>
-        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#notes" class="nav-link">Lecture Notes</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#cv" class="nav-link">CV</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -89,11 +86,8 @@
             <a href="#cv" class="btn btn-primary">
               <i data-lucide="file-text"></i> Curriculum Vitae
             </a>
-            <a href="#blog" class="btn btn-secondary">
-              <i data-lucide="pen-tool"></i> Read Blog
-            </a>
             <a href="#notes" class="btn btn-secondary">
-              <i data-lucide="book-open"></i> Lecture Notes &amp; Other Material
+              <i data-lucide="book-open"></i> Lecture Notes &amp; Material
             </a>
             <a href="#contact" class="btn btn-outline">
               <i data-lucide="mail"></i> Contact Me
@@ -107,19 +101,16 @@
               <span class="math-dot red"></span>
               <span class="math-dot yellow"></span>
               <span class="math-dot green"></span>
-              <span class="math-tab-title">latest_insight.md</span>
+              <span class="math-tab-title">academic_spotlight.tex</span>
             </div>
             <div class="spotlight-body">
               <div class="spotlight-badge">
-                <span class="pulse-dot"></span> Latest Blog Article
+                <span class="pulse-dot"></span> Featured Lecture Notes
               </div>
-              <h3 class="spotlight-title"><a href="blog/crank-nicolson-stability.html">Why Crank-Nicolson is Unconditionally Stable</a></h3>
-              <p class="spotlight-desc">Von Neumann stability analysis of 1D parabolic PDEs and the spectral radius of the amplification matrix.</p>
-              <div class="spotlight-math">
-                $$|G(\xi)| = \left|\frac{1 - 2r \sin^2(\xi/2)}{1 + 2r \sin^2(\xi/2)}\right| \le 1 \quad \forall r > 0$$
-              </div>
-              <a href="blog/crank-nicolson-stability.html" class="spotlight-action-link">
-                Read Full Insight &amp; Derivation <i data-lucide="arrow-right"></i>
+              <h3 class="spotlight-title"><a href="assets/docs/metodi%20risolutivi%20equazioni%20differenziali.pdf" download="metodi_risolutivi_equazioni_differenziali.pdf">Methods for Solving Differential Equations</a></h3>
+              <p class="spotlight-desc">Analytical resolution techniques for ODEs, linear systems, and variation of constants (in Italian).</p>
+              <a href="assets/docs/metodi%20risolutivi%20equazioni%20differenziali.pdf" class="spotlight-action-link" download="metodi_risolutivi_equazioni_differenziali.pdf">
+                <i data-lucide="download"></i> Download Note (PDF) <i data-lucide="arrow-right"></i>
               </a>
             </div>
           </div>
@@ -167,113 +158,28 @@
       </div>
     </section>
 
-    <!-- MINI BLOG & MATHEMATICAL INSIGHTS SECTION -->
-    <section id="blog" class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Blog &amp; Mathematical Insights</h2>
-          <p class="section-subtitle">Short articles, derivations, computational thoughts, and problem-solving notes</p>
-        </div>
-
-        <div class="blog-grid">
-          <!-- Article 1 -->
-          <article class="blog-card">
-            <div class="blog-meta-header">
-              <span class="blog-tag">Numerical Analysis</span>
-              <span class="blog-reading-time"><i data-lucide="clock"></i> 5 min read</span>
-            </div>
-            <h3 class="blog-title"><a href="blog/crank-nicolson-stability.html">Why the Crank-Nicolson Scheme is Unconditionally Stable: A Von Neumann View</a></h3>
-            <p class="blog-excerpt">
-              A concise derivation of the amplification factor in finite difference discretizations of the 1D heat equation, proving why implicit averaging ensures $|G(\xi)| \le 1$ for all $\Delta t$.
-            </p>
-            <div class="blog-math-preview">
-              $$G(\xi) = \frac{1 - 2r \sin^2(\xi/2)}{1 + 2r \sin^2(\xi/2)} \implies |G(\xi)| \le 1 \quad \forall r > 0$$
-            </div>
-            <div class="blog-footer">
-              <span class="blog-date">March 2026</span>
-              <a href="blog/crank-nicolson-stability.html" class="blog-read-more">Read Full Article <i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-
-          <!-- Article 2 -->
-          <article class="blog-card">
-            <div class="blog-meta-header">
-              <span class="blog-tag">Optimization</span>
-              <span class="blog-reading-time"><i data-lucide="clock"></i> 4 min read</span>
-            </div>
-            <h3 class="blog-title"><a href="blog/lagrange-multipliers-kkt.html">Geometric Intuition Behind Lagrange Multipliers and KKT Conditions</a></h3>
-            <p class="blog-excerpt">
-              Visualizing why the gradient of the objective function must be aligned with the normal cone of active constraints at any local constrained extremum.
-            </p>
-            <div class="blog-math-preview">
-              $$-\nabla f(\mathbf{x}^*) \in N_{\mathcal{C}}(\mathbf{x}^*), \quad \mu_i \ge 0, \; \mu_i g_i(\mathbf{x}^*) = 0$$
-            </div>
-            <div class="blog-footer">
-              <span class="blog-date">February 2026</span>
-              <a href="blog/lagrange-multipliers-kkt.html" class="blog-read-more">Read Full Article <i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-
-          <!-- Article 3 -->
-          <article class="blog-card">
-            <div class="blog-meta-header">
-              <span class="blog-tag">Linear Algebra</span>
-              <span class="blog-reading-time"><i data-lucide="clock"></i> 6 min read</span>
-            </div>
-            <h3 class="blog-title"><a href="blog/svd-geometry.html">Singular Value Decomposition (SVD): Geometry of the Four Fundamental Subspaces</a></h3>
-            <p class="blog-excerpt">
-              How the SVD transforms unit hyperspheres into hyperellipsoids, providing the ultimate coordinate system for rank reduction and least squares problems.
-            </p>
-            <div class="blog-math-preview">
-              $$\mathbf{A} = \sum_{i=1}^r \sigma_i \mathbf{u}_i \mathbf{v}_i^T, \quad \mathbf{A}^\dagger = \mathbf{V}\mathbf{\Sigma}^\dagger \mathbf{U}^T$$
-            </div>
-            <div class="blog-footer">
-              <span class="blog-date">January 2026</span>
-              <a href="blog/svd-geometry.html" class="blog-read-more">Read Full Article <i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- LECTURE NOTES & OTHER MATERIAL SECTION -->
-    <section id="notes" class="section">
+    <!-- LECTURE NOTES & MATERIAL SECTION -->
+    <section id="notes" class="section section-alt">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Lecture Notes &amp; Other Material</h2>
           <p class="section-subtitle">
-            Self-contained $\LaTeX$ notes, study summaries, and reference sheets prepared during my coursework at Politecnico di Torino. 
+            Study summaries, reference sheets, and compendiums prepared during my coursework at Politecnico di Torino. 
             Free to download and read.
           </p>
-        </div>
-
-        <!-- Filter Buttons -->
-        <div class="filter-container">
-          <button class="filter-btn active" data-filter="all">All Materials</button>
-          <button class="filter-btn" data-filter="analysis">Analysis &amp; Theory</button>
-          <button class="filter-btn" data-filter="numerical">Numerical &amp; Computing</button>
-          <button class="filter-btn" data-filter="physics">Math Physics</button>
-          <button class="filter-btn" data-filter="optimization">Optimization &amp; Stats</button>
         </div>
 
         <div class="notes-grid" id="notes-grid">
           <!-- Item 1: Differential Equations (Real PDF) -->
           <div class="note-card" data-category="analysis">
             <div class="note-header">
-              <span class="note-category-badge">Analysis &amp; ODEs</span>
-              <span class="note-date"><i data-lucide="check-circle-2"></i> Available Now</span>
+              <span class="note-category-badge">Differential Equations</span>
+              <span class="note-date"><i data-lucide="file-text"></i> PDF &bull; Italian</span>
             </div>
             <h3 class="note-title">Methods for Solving Differential Equations (in Italian)</h3>
             <p class="note-desc">
               Comprehensive reference covering analytical solution methods for first and second-order Ordinary Differential Equations (ODEs), linear systems, characteristic equations, and variation of constants.
             </p>
-            <div class="note-formula-box">
-              $$y''(x) + p(x)y'(x) + q(x)y(x) = g(x), \quad y(x) = y_h(x) + y_p(x)$$
-            </div>
-            <div class="note-meta">
-              <span class="badge-format"><i data-lucide="file-text"></i> PDF Notes</span>
-              <span class="badge-lang"><i data-lucide="globe"></i> Italian</span>
-            </div>
             <div class="note-actions">
               <a href="assets/docs/metodi%20risolutivi%20equazioni%20differenziali.pdf" class="btn btn-sm btn-primary" download="metodi_risolutivi_equazioni_differenziali.pdf">
                 <i data-lucide="download"></i> Download PDF
@@ -288,19 +194,12 @@
           <div class="note-card" data-category="analysis">
             <div class="note-header">
               <span class="note-category-badge">Mathematical Analysis</span>
-              <span class="note-date"><i data-lucide="check-circle-2"></i> Available Now</span>
+              <span class="note-date"><i data-lucide="file-text"></i> PDF &bull; Italian</span>
             </div>
             <h3 class="note-title">Convergence Criteria for Series &amp; Integrals (in Italian)</h3>
             <p class="note-desc">
               Complete compendium and quick-reference sheet for numerical series convergence tests (Ratio, Root, Integral, Leibniz alternating test) and improper integrals.
             </p>
-            <div class="note-formula-box">
-              $$\sum_{n=1}^\infty a_n, \quad \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| = L < 1 \implies \text{Converges}$$
-            </div>
-            <div class="note-meta">
-              <span class="badge-format"><i data-lucide="file-text"></i> PDF Notes</span>
-              <span class="badge-lang"><i data-lucide="globe"></i> Italian</span>
-            </div>
             <div class="note-actions">
               <a href="assets/docs/criteri_convergenza.pdf" class="btn btn-sm btn-primary" download="criteri_convergenza.pdf">
                 <i data-lucide="download"></i> Download PDF
@@ -310,295 +209,12 @@
               </a>
             </div>
           </div>
-
-          <!-- Item 3: Numerical Analysis Compendium -->
-          <div class="note-card" data-category="numerical">
-            <div class="note-header">
-              <span class="note-category-badge">Numerical Methods</span>
-              <span class="note-date"><i data-lucide="clock"></i> Updated 2026</span>
-            </div>
-            <h3 class="note-title">Numerical Analysis &amp; Scientific Computing Compendium</h3>
-            <p class="note-desc">
-              Comprehensive reference covering root-finding algorithms, QR/SVD matrix factorizations, polynomial interpolation, numerical quadrature, and Runge-Kutta ODE solvers.
-            </p>
-            <div class="note-formula-box">
-              $$\mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^T, \quad x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
-            </div>
-            <div class="note-meta">
-              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
-              <span class="badge-lang"><i data-lucide="code"></i> LaTeX Source</span>
-            </div>
-            <div class="note-actions">
-              <a href="assets/docs/numerical_analysis_notes.pdf" class="btn btn-sm btn-primary" download>
-                <i data-lucide="download"></i> Download PDF
-              </a>
-              <a href="#contact" class="btn btn-sm btn-outline">
-                <i data-lucide="message-square"></i> Feedback
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 2: Mathematical Analysis III -->
-          <div class="note-card" data-category="analysis">
-            <div class="note-header">
-              <span class="note-category-badge">Analysis</span>
-              <span class="note-date"><i data-lucide="clock"></i> Updated 2026</span>
-            </div>
-            <h3 class="note-title">Complex Analysis &amp; Hilbert Spaces Notes</h3>
-            <p class="note-desc">
-              Detailed review of Cauchy-Riemann equations, contour integration, Cauchy's residue theorem, Hilbert basis, and Fourier transforms in $L^2(\mathbb{R})$.
-            </p>
-            <div class="note-formula-box">
-              $$\oint_{\gamma} f(z) \, dz = 2\pi i \sum_{k=1}^m \operatorname{Res}(f, z_k)$$
-            </div>
-            <div class="note-meta">
-              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
-              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
-            </div>
-            <div class="note-actions">
-              <a href="assets/docs/complex_analysis_notes.pdf" class="btn btn-sm btn-primary" download>
-                <i data-lucide="download"></i> Download PDF
-              </a>
-              <a href="#contact" class="btn btn-sm btn-outline">
-                <i data-lucide="message-square"></i> Feedback
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 3: Optimization & Linear Programming -->
-          <div class="note-card" data-category="optimization">
-            <div class="note-header">
-              <span class="note-category-badge">Optimization</span>
-              <span class="note-date"><i data-lucide="clock"></i> Updated 2026</span>
-            </div>
-            <h3 class="note-title">Operations Research &amp; Convex Optimization Guide</h3>
-            <p class="note-desc">
-              Algorithmic summaries: Two-phase Simplex method, Duality Theory, Karush-Kuhn-Tucker (KKT) conditions, and Gradient Descent convergence proofs.
-            </p>
-            <div class="note-formula-box">
-              $$\nabla f(\mathbf{x}^*) + \sum_{i=1}^m \mu_i \nabla g_i(\mathbf{x}^*) = \mathbf{0}, \quad \mu_i g_i(\mathbf{x}^*) = 0$$
-            </div>
-            <div class="note-meta">
-              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
-              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
-            </div>
-            <div class="note-actions">
-              <a href="assets/docs/optimization_notes.pdf" class="btn btn-sm btn-primary" download>
-                <i data-lucide="download"></i> Download PDF
-              </a>
-              <a href="#contact" class="btn btn-sm btn-outline">
-                <i data-lucide="message-square"></i> Feedback
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 4: Rational Mechanics -->
-          <div class="note-card" data-category="physics">
-            <div class="note-header">
-              <span class="note-category-badge">Mathematical Physics</span>
-              <span class="note-date"><i data-lucide="clock"></i> Updated 2025</span>
-            </div>
-            <h3 class="note-title">Analytical Mechanics &amp; Variational Principles</h3>
-            <p class="note-desc">
-              Summary of Euler-Lagrange equations, canonical transformations, Hamiltonian dynamics, rigid body kinematics, and Poisson brackets.
-            </p>
-            <div class="note-formula-box">
-              $$\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}_i}\right) - \frac{\partial \mathcal{L}}{\partial q_i} = 0$$
-            </div>
-            <div class="note-meta">
-              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
-              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
-            </div>
-            <div class="note-actions">
-              <a href="assets/docs/rational_mechanics_notes.pdf" class="btn btn-sm btn-primary" download>
-                <i data-lucide="download"></i> Download PDF
-              </a>
-              <a href="#contact" class="btn btn-sm btn-outline">
-                <i data-lucide="message-square"></i> Feedback
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 5: Probability & Statistics -->
-          <div class="note-card" data-category="optimization">
-            <div class="note-header">
-              <span class="note-category-badge">Probability</span>
-              <span class="note-date"><i data-lucide="clock"></i> Updated 2025</span>
-            </div>
-            <h3 class="note-title">Probability &amp; Stochastic Processes</h3>
-            <p class="note-desc">
-              Joint probability distributions, characteristic functions, Central Limit Theorem, Poisson processes, and discrete-time Markov chains.
-            </p>
-            <div class="note-formula-box">
-              $$\varphi_X(t) = \mathbb{E}\left[e^{itX}\right], \quad \lim_{n \to \infty} P\left(\frac{S_n - n\mu}{\sigma \sqrt{n}} \le z\right) = \Phi(z)$$
-            </div>
-            <div class="note-meta">
-              <span class="badge-format"><i data-lucide="file"></i> PDF Notes</span>
-              <span class="badge-lang"><i data-lucide="code"></i> LaTeX</span>
-            </div>
-            <div class="note-actions">
-              <a href="assets/docs/probability_notes.pdf" class="btn btn-sm btn-primary" download>
-                <i data-lucide="download"></i> Download PDF
-              </a>
-              <a href="#contact" class="btn btn-sm btn-outline">
-                <i data-lucide="message-square"></i> Feedback
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 6: Future Material Placeholder -->
-          <div class="note-card future-card" data-category="all">
-            <div class="future-content">
-              <div class="future-icon"><i data-lucide="plus-circle"></i></div>
-              <h3>More Notes in Progress</h3>
-              <p>
-                Drafting notes for <strong>Partial Differential Equations (PDEs)</strong>, <strong>Finite Element Methods (FEM)</strong>, and <strong>Scientific Python</strong>.
-              </p>
-              <span class="badge-incoming">Regularly Updated &bull; 2026</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS & RESEARCH SECTION -->
-    <section id="publications" class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Publications &amp; Research</h2>
-          <p class="section-subtitle">Pre-prints, technical reports, working papers, and thesis work</p>
-        </div>
-
-        <div class="publications-wrapper">
-          <!-- Forthcoming / In Progress Item -->
-          <div class="pub-card in-progress">
-            <div class="pub-badge-group">
-              <span class="pub-badge-status"><i data-lucide="loader"></i> Forthcoming / In Progress</span>
-              <span class="pub-badge-type">Undergraduate Thesis / Working Paper</span>
-            </div>
-            <h3 class="pub-title">Numerical Methods and Optimization in Applied Mathematics</h3>
-            <p class="pub-authors"><strong>Alessio Costa</strong></p>
-            <p class="pub-abstract">
-              Currently preparing working papers and research material at Politecnico di Torino exploring numerical solvers for differential systems and convex optimization algorithms. Pre-prints and technical reports will be published here upon completion.
-            </p>
-            <div class="pub-links">
-              <span class="pub-link disabled"><i data-lucide="file-text"></i> PDF (Coming Soon)</span>
-              <span class="pub-link disabled"><i data-lucide="code-2"></i> Code Repository</span>
-              <span class="pub-link disabled"><i data-lucide="quote"></i> BibTeX</span>
-            </div>
-          </div>
-
-          <!-- Publication Placeholder Template for Future Use -->
-          <div class="pub-card-placeholder">
-            <div class="pub-placeholder-content">
-              <i data-lucide="sparkles" class="placeholder-icon"></i>
-              <h4>Research Papers &amp; Preprints Section</h4>
-              <p>As new papers, pre-prints (arXiv), or thesis chapters are written, they will be listed here with direct open-access links, abstracts, and BibTeX citations.</p>
-              <div class="pub-meta-tags">
-                <span><i data-lucide="check-circle-2"></i> arXiv compatible</span>
-                <span><i data-lucide="check-circle-2"></i> Open Access</span>
-                <span><i data-lucide="check-circle-2"></i> Reproducible Code</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Computational Projects</h2>
-          <p class="section-subtitle">Mathematical modeling, simulation algorithms, and code implementations</p>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">2D Heat &amp; Wave Equation Solver (FDM / FEM)</h3>
-            <p class="project-desc">
-              Numerical solver in Python and C++ for parabolic and hyperbolic PDEs using Crank-Nicolson and finite difference stencils with sparse matrix acceleration.
-            </p>
-            <div class="project-math-badge">
-              $\frac{\partial u}{\partial t} = \alpha \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right)$
-            </div>
-            <div class="project-tech-stack">
-              <span>Python</span><span>NumPy</span><span>SciPy</span><span>Matplotlib</span><span>C++</span>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">Simplex &amp; Interior Point Optimizer</h3>
-            <p class="project-desc">
-              An educational and efficient optimization solver implementing Revised Simplex, Bland's anti-cycling rule, and Primal-Dual Interior Point methods for linear programs.
-            </p>
-            <div class="project-math-badge">
-              $\min \mathbf{c}^T \mathbf{x} \quad \text{s.t.} \quad \mathbf{Ax} = \mathbf{b}, \; \mathbf{x} \ge \mathbf{0}$
-            </div>
-            <div class="project-tech-stack">
-              <span>Python</span><span>Julia</span><span>Optimization</span><span>Linear Algebra</span>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">Monte Carlo Simulations &amp; Markov Chains</h3>
-            <p class="project-desc">
-              Simulation toolkit for high-dimensional integration, random walks, PageRank power iterations, and Metropolis-Hastings MCMC sampling.
-            </p>
-            <div class="project-math-badge">
-              $I \approx \frac{1}{N} \sum_{i=1}^N g(X_i), \quad X_i \sim p(x)$
-            </div>
-            <div class="project-tech-stack">
-              <span>MATLAB</span><span>Python</span><span>Stochastics</span><span>MCMC</span>
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-folder-icon"><i data-lucide="folder-git-2"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/alecosta6" target="_blank" rel="noopener noreferrer" title="View Source Code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">Dimensionality Reduction &amp; Spectral Clustering</h3>
-            <p class="project-desc">
-              Mathematical exploration of SVD, Principal Component Analysis (PCA), Graph Laplacians, and Spectral Clustering applied to complex datasets.
-            </p>
-            <div class="project-math-badge">
-              $\mathbf{L} = \mathbf{D} - \mathbf{W}, \quad \mathbf{L}\mathbf{v} = \lambda \mathbf{v}$
-            </div>
-            <div class="project-tech-stack">
-              <span>Python</span><span>Scikit-Learn</span><span>Linear Algebra</span><span>Graph Theory</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- TECHNICAL SKILLS SECTION -->
-    <section id="skills" class="section section-alt">
+    <section id="skills" class="section">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Technical Skills &amp; Tools</h2>
@@ -654,7 +270,7 @@
     </section>
 
     <!-- CURRICULUM VITAE (CV) SECTION -->
-    <section id="cv" class="section">
+    <section id="cv" class="section section-alt">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Curriculum Vitae</h2>
@@ -740,7 +356,7 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="section section-alt">
+    <section id="contact" class="section">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Get in Touch</h2>
